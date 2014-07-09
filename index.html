@@ -22,6 +22,7 @@
               <a href="#" style="color:white"><h1>Project name</h1></a>
             </li>
             <li><a href="#" style="color:white"><h2><small>This is your brand new app!</small></h2></a></li>
+            <li  ng-show="logoutButon" ><a href="#" style="color:white" class="pull-right"><h2><small>You are {{ userInfo }}</small></h2></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -31,14 +32,34 @@
     
     <material-sidenav class="material-sidenav-left material-whiteframe-z3" component-id="left">
       <div ng-controller="LeftCtrl" style="padding-top:100px; padding-left:20px">
-        <h2>Menu</h2>
-        <ul>
-          <li><a ui-sref="home">Home</a></li>
-          <li><a ui-sref="signup" ng-hide="l">Sign Up</a></li>
-          <li><a ui-sref="signin" ng-hide="l">Sign In</a></li>
-          <li><a href="#" ng-click="logout()" ng-show="l">Logout</a></li>
-        </ul>
-        <button class="material-button" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+        <div class="center-block">
+          <h1>Menu</h1>
+          <p >
+            <button ui-sref="home" class="material-button material-button-colored material-whiteframe-z2">
+              <i class="glyphicon glyphicon-home"> Home</i> 
+            </button>
+          </p>
+          <p>
+            <button ui-sref="signup" ng-hide="logoutButon" class="material-button material-button-colored">
+              <i class="glyphicon glyphicon-pencil"> SignUp</i>
+            </button>
+          </p>
+          <p>
+            <button ui-sref="signin" ng-hide="logoutButon" class="material-button material-button-colored">
+              <i class="glyphicon glyphicon-log-in"> LogIn</i>
+            </button>
+          </p>
+          <p>
+            <button href="#" ng-click="logout()" ng-show="logoutButon" class="material-button material-button-colored">
+               <i class="glyphicon glyphicon-log-out"> LogOut</i>
+            </button>
+          </p>
+          <p>
+            <button class="material-button material-button-colored material-whiteframe-z2" ng-click="close()">
+              <i class="glyphicon glyphicon-remove"> Close</i> 
+            </button>
+          </p>
+        </div>
       </div>
     </material-sidenav>
   </div>

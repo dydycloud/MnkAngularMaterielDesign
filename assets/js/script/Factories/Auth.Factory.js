@@ -3,6 +3,7 @@ angular.module("myApp.auth.factory", []).factory("Auth", function($firebaseSimpl
   ref = new Firebase(FIREBASE_URL);
   auth = $firebaseSimpleLogin(ref);
   $rootScope.loader = false;
+  $rootScope.logoutButon = "false";
   Auth = {
     register: function(user) {
       $rootScope.loader = true;
@@ -14,13 +15,13 @@ angular.module("myApp.auth.factory", []).factory("Auth", function($firebaseSimpl
       return auth.user !== null;
     },
     login: function(user) {
-      $rootScope.loader = true;
-      $rootScope.l = "true";
+      $rootScope.logoutButon = "true";
+      $rootScope.userInfo = user.email;
       return auth.$login('password', user);
     },
     logout: function() {
-      $rootScope.loader = false;
-      $rootScope.l = "false";
+      $rootScope.logoutButon = "false";
+      $rootScope.userInfo = "";
       return auth.$logout();
     }
   };

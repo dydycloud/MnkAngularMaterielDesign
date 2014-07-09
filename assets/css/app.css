@@ -5791,3 +5791,15 @@ button.close {
 h2 small{
   color: white;
 }
+
+.pull-right {
+  float: right !important;
+}
+
+.center-block {
+  margin-left: 25%;
+  font-size: 1.4em
+}
+.center-block p{
+  padding-top: 15px;
+}

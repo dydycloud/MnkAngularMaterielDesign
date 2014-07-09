@@ -24,6 +24,7 @@ angular.module("myApp.auth.factory", []).factory("Auth", function($firebaseSimpl
   ref = new Firebase(FIREBASE_URL);
   auth = $firebaseSimpleLogin(ref);
   $rootScope.loader = false;
+  $rootScope.logoutButon = "false";
   Auth = {
     register: function(user) {
       $rootScope.loader = true;
@@ -35,13 +36,13 @@ angular.module("myApp.auth.factory", []).factory("Auth", function($firebaseSimpl
       return auth.user !== null;
     },
     login: function(user) {
-      $rootScope.loader = true;
-      $rootScope.l = "true";
+      $rootScope.logoutButon = "true";
+      $rootScope.userInfo = user.email;
       return auth.$login('password', user);
     },
     logout: function() {
-      $rootScope.loader = false;
-      $rootScope.l = "false";
+      $rootScope.logoutButon = "false";
+      $rootScope.userInfo = "";
       return auth.$logout();
     }
   };
@@ -67,6 +68,8 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"]).controller("AppCtrl", f
     return leftNav.toggle();
   };
   $scope.login = function() {
+    $scope.loader = true;
+    $scope.logoutButon = "true";
     return Auth.login($scope.user).then(function() {
       return $location.path("/");
     });
@@ -77,6 +80,7 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"]).controller("AppCtrl", f
     });
   };
   return $scope.logout = function() {
+    $scope.loader = false;
     Auth.logout();
     return console.log($scope.user);
   };

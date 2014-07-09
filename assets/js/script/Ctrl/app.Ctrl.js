@@ -14,6 +14,8 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"]).controller("AppCtrl", f
     return leftNav.toggle();
   };
   $scope.login = function() {
+    $scope.loader = true;
+    $scope.logoutButon = "true";
     return Auth.login($scope.user).then(function() {
       return $location.path("/");
     });
@@ -24,6 +26,7 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"]).controller("AppCtrl", f
     });
   };
   return $scope.logout = function() {
+    $scope.loader = false;
     Auth.logout();
     return console.log($scope.user);
   };

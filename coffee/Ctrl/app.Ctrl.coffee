@@ -12,6 +12,8 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"])
     leftNav.toggle()
 
   $scope.login = ->
+    $scope.loader = true
+    $scope.logoutButon = "true"
     Auth.login($scope.user).then ->
       $location.path "/"
 
@@ -20,5 +22,6 @@ angular.module("myApp.app.Ctrl", ["myApp.auth.factory"])
       $location.path "/signin"
  
   $scope.logout = ->
+    $scope.loader = false
     Auth.logout()
     console.log $scope.user

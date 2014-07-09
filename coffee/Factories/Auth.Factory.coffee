@@ -3,6 +3,7 @@ angular.module("myApp.auth.factory", [])
   ref = new Firebase(FIREBASE_URL)
   auth = $firebaseSimpleLogin(ref)
   $rootScope.loader = false
+  $rootScope.logoutButon = "false"
   Auth =
     register: (user) ->
       $rootScope.loader = true
@@ -13,13 +14,13 @@ angular.module("myApp.auth.factory", [])
       auth.user isnt null
 
     login: (user)->
-      $rootScope.loader = true
-      $rootScope.l = "true"
+      $rootScope.logoutButon = "true"
+      $rootScope.userInfo = user.email
       auth.$login('password', user)
 
     logout: ->
-      $rootScope.loader = false
-      $rootScope.l = "false"
+      $rootScope.logoutButon = "false"
+      $rootScope.userInfo = ""
       auth.$logout()
 
   $rootScope.signedIn = ->
