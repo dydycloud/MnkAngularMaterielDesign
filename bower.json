@@ -1,0 +1,23 @@
+{
+  "name": "angMat",
+  "version": "0.0.1",
+  "authors": [
+    "dydycloud <sandy.pierre97@gmail.com>"
+  ],
+  "description": "Bootsrap app",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.19",
+    "angular-animate": "~1.2.19",
+    "angular-route": "~1.2.19"
+  }
+}

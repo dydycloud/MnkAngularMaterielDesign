@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-5">
+			<h1><paper-item icon="account-circle">Sign up</paper-item></h1>
+			<p ng-show="loader"> loading... </p>
+			<form ng-submit="login()">
+				<p ng-show="error" class="text-danger">{{ error }}</p>
+					<br>
+					<input type="text" ng-model="user.email" placeholder="Email"/>
+				<br><br>
+				<input type="text" ng-model="user.password" placeholder="Password"/>
+				<br><br>
+				<input type="submit" value="Let's Go" class="btn btn-primary" />
+				<br><br>
+			</form>
+		</div>
+	</div>
+</div>

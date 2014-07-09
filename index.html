@@ -1,0 +1,58 @@
+<!doctype html>
+  <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+    
+    
+    
+  </head>
+  <body>
+
+  <div ng-app="app" ng-controller="AppCtrl">
+    <div class="navbar navbar-inverse navbar-fixed-top material-whiteframe-z5" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <material-icon ng-click="toggleLeft()" style="position: static; display: block" class="material-button material-button-fab" icon="assets/img/icons/ic_menu_24px.svg"></material-icon>
+          
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li >
+              <a href="#" style="color:white"><h1>Project name</h1></a>
+            </li>
+            <li><a href="#" style="color:white"><h2><small>This is your brand new app!</small></h2></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div ui-view class="container material-whiteframe-z2" style="padding-top:100px">
+    </div>
+    
+    <material-sidenav class="material-sidenav-left material-whiteframe-z3" component-id="left">
+      <div ng-controller="LeftCtrl" style="padding-top:100px; padding-left:20px">
+        <h2>Menu</h2>
+        <ul>
+          <li><a ui-sref="home">Home</a></li>
+          <li><a ui-sref="signup" ng-hide="l">Sign Up</a></li>
+          <li><a ui-sref="signin" ng-hide="l">Sign In</a></li>
+          <li><a href="#" ng-click="logout()" ng-show="l">Logout</a></li>
+        </ul>
+        <button class="material-button" ng-click="close()"><i class="glyphicon glyphicon-remove"></i> Close</button>
+      </div>
+    </material-sidenav>
+  </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="assets/libs/firebase/firebase.js"></script>
+    <script src="assets/libs/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angularfire/angularfire.min.js"></script>
+    <script src="assets/libs/angular/angular-animate.min.js"></script>
+    
+    <script src="assets/libs/angular/angular-ui-router.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
